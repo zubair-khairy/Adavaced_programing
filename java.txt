@@ -1,0 +1,244 @@
+Class and object
+class ComplexNumber:
+    def __init__(self, r=0, i=0):
+        self.real = r
+        self.imag = i
+
+    def get_data(self):
+        print(f'{self.real}+{self.imag}j')
+
+
+# Create a new ComplexNumber object
+num1 = ComplexNumber(2, 3)
+
+# Call get_data() method
+# Output: 2+3j
+num1.get_data()
+
+# Create another ComplexNumber object
+# and create a new attribute 'attr'
+num2 = ComplexNumber(5)
+num2.attr = 10
+
+# Output: (5, 0, 10)
+print((num2.real, num2.imag, num2.attr))
+
+# but c1 object doesn't have attribute 'attr'
+# AttributeError: 'ComplexNumber' object has no attribute 'attr'
+print(num1.attr)
+
+Output
+2+3j
+(5, 0, 10)
+Traceback (most recent call last):
+  File "<string>", line 27, in <module>
+    print(num1.attr)
+AttributeError: 'ComplexNumber' object has no attribute 'attr'
+
+ Constructing Objects Using Constructors
+
+
+class Employee:  
+2.    def __init__(self, name, id):  
+3.        self.id = id  
+4.        self.name = name  
+5.  
+6.    def display(self):  
+7.        print("ID: %d \nName: %s" % (self.id, self.name))  
+8.  
+9.  
+10.emp1 = Employee("John", 101)  
+11.emp2 = Employee("David", 102)  
+12.  
+13.# accessing display() method to print employee 1 information  
+14.  
+15.emp1.display()  
+16.  
+17.# accessing display() method to print employee 2 information  
+18.emp2.display()  
+
+
+
+
+
+
+
+
+
+
+
+
+Using Classes
+
+
+# Class for Computer Science Student
+class CSStudent:
+    stream = 'cse'     # Class Variable
+    def __init__(self, name, roll):
+        self.name = name
+        self.roll = roll
+ 
+# Driver program to test the functionality
+# Creating objects of CSStudent class
+a = CSStudent("Geek", 1)
+b = CSStudent("Nerd", 2)
+ 
+print ("Initially")
+print ("a.stream =", a.stream )
+print ("b.stream =", b.stream )
+ 
+# This thing doesn't change class(static) variable
+# Instead creates instance variable for the object
+# 'a' that shadows class member.
+a.stream = "ece"
+ 
+print ("\nAfter changing a.stream")
+print ("a.stream =", a.stream )
+print ("b.stream =", b.stream )
+
+
+Static Variables, Constants, and Methods
+class Fruits(object):
+count = 0
+def __init__(self, name, count):
+self.name = name
+self.count = count
+Fruits.count = Fruits.count + count
+
+def main():
+apples = Fruits("apples", 3);
+pears = Fruits("pears", 4);
+print (apples.count)
+print (pears.count)
+print (Fruits.count)
+print (apples.__class__.count) # This is Fruit.count
+print (type(pears).count) # So is this
+
+if __name__ == '__main__':
+main()
+
+Data Field Encapsulation
+class Employee:
+    # constructor
+    def __init__(self, name, salary, project):
+        # data members
+        self.name = name
+        self.salary = salary
+        self.project = project
+
+    # method
+    # to display employee's details
+    def show(self):
+        # accessing public data member
+        print("Name: ", self.name, 'Salary:', self.salary)
+
+    # method
+    def work(self):
+        print(self.name, 'is working on', self.project)
+
+# creating object of a class
+emp = Employee('Jessa', 8000, 'NLP')
+
+# calling public method of the class
+emp.show()
+emp.work()
+
+
+Passing Objects to Methods
+ 
+
+class MyClass():
+  def my_method(self, obj):
+    print('In my_method method of MyClass')
+    print("Name:", obj.name)
+    print("Age:", obj.age)
+
+In MyClass there is one method my_method which takes one more argument apart from self. 
+from MyClass import MyClass
+class Person:
+  def __init__(self, name, age):
+    print('init called')
+    self.name = name
+    self.age = age
+
+  def display(self):
+    print('in display')
+    print("Name-", self.name)
+    print("Age-", self.age)
+    # object of class MyClass
+    obj = MyClass()
+    # passing person object to
+    # method of MyClass (self = person here)
+    obj.my_method(self)
+
+person = Person('John', 40)
+person.display()
+
+In class Person, MyClass is also used so that is imported.from MyClass import MyClass
+
+In method display() object of MyClass is created.obj = MyClass()
+
+Then the my_method() method of class MyClass is called and object of Person class is passed as parameter. # passing person object to
+ # method of MyClass (self = person here)
+ obj.my_method(self)
+
+Array of Objects
+
+>>> from array import array # import array class from array module
+>>> a = array('i', [4,5,6,7]) # create an array of signed int.
+>>> a[0] # access at index 0, first element
+4
+>>> a[3] # access at index 3, 4th element
+7
+>>> a[-1] # access at index -1, last element, same as a[len(a)-1]
+7
+>>> a[9] # access at index 9, out of range
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: array index out of range
+
+
+Immutable Objects and Classes
+print("The following instance is an object:",isinstance(3,object))
+print("Another instance for object", isinstance(True, object))
+def my_func():
+    return "guru99"
+print("This is a function example and regarded as an object in Python:", isinstance(my_func, object))
+z=200
+id(z)
+print("the id of object is",z)
+
+
+
+a=244
+print("the number before change is",a)
+print("the id of number before change is",id(a))
+a=344
+print("the number after change is",a)
+print("the id of number after change is",id(a))
+
+
+The Scope of Variables
+
+# Python program to demonstrate
+# variable assignment
+   
+# An integer assignment
+age = 45                     
+   
+# A floating point
+salary = 1456.8            
+   
+# A string  
+name = "John"             
+   
+print(age)
+print(salary)
+print(name)
+
+
+
+
+The this Reference
+
+
